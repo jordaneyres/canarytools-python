@@ -188,7 +188,7 @@ class Console(object):
         :return: The api_key and the domain
         """
         paths = [os.path.expanduser('~/.canarytools.config'), os.path.expanduser('~/canarytools.config'),
-                 '/etc/canarytools.config']
+                     '/etc/canarytools.config','canarytools.config','config/canarytools.config']
         config_parser = configparser.RawConfigParser()
         for path in paths:
             try:
