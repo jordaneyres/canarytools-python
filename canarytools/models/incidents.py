@@ -10,7 +10,7 @@ class Incidents(object):
         """
         self.console = console
 
-    def all(self, node_id=None, event_limit=None,incidents_since=None):
+    def all(self, node_id=None, event_limit=None, incidents_since=None):
         """Get all incidents for this console.
 
         :param node_id: Get all incidents for a specific node
