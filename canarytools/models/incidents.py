@@ -10,11 +10,12 @@ class Incidents(object):
         """
         self.console = console
 
-    def all(self, node_id=None, event_limit=None):
+    def all(self, node_id=None, event_limit=None,incidents_since=None):
         """Get all incidents for this console.
 
         :param node_id: Get all incidents for a specific node
         :param event_limit: Specify the maximum number of event logs to be returned with the incident.
+        :param incidents_since: Specify an update_id to return all incidents since given id.
         :return: List of Incident objects
         :rtype: List of :class:`Incident <Incident>` objects
 
@@ -23,7 +24,7 @@ class Incidents(object):
             >>> import canarytools
             >>> incidents = console.incidents.all()
         """
-        params = {'tz': self.console.tz, 'node_id': node_id, 'event_limit': event_limit}
+        params = {'tz': self.console.tz, 'node_id': node_id, 'event_limit': event_limit, 'incidents_since': incidents_since}
         return self.console.get('incidents/all', params, self.parse)
 
     def unacknowledged(self, node_id=None, event_limit=None):
